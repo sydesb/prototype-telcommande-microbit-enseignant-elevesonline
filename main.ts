@@ -2,13 +2,13 @@ enum RadioMessage {
     message1 = 49434
 }
 keyboard.kbEvent(KeyValue.keydiv, function () {
-	
+    radio.sendNumber(3)
 })
 keyboard.kbEvent(KeyValue.keyequal, function () {
-	
+    radio.sendNumber(2)
 })
 keyboard.kbEvent(KeyValue.key0, function () {
-	
+    radio.sendNumber(1)
 })
 keyboard.kbEvent(KeyValue.keydf, function () {
     radio.sendNumber(0)
