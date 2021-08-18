@@ -2,26 +2,40 @@ enum RadioMessage {
     message1 = 49434,
     test = 2239
 }
-keyboard.kbEvent(KeyValue.keydiv, function () {
-    radio.sendNumber(3)
-    affichebienenvoye()
-})
-keyboard.kbEvent(KeyValue.keyequal, function () {
-    radio.sendNumber(2)
-    affichebienenvoye()
-})
 function affichebienenvoye () {
-    basic.showIcon(IconNames.Square)
-    basic.pause(200)
     basic.showIcon(IconNames.Diamond)
-    basic.pause(200)
     basic.showIcon(IconNames.SmallDiamond)
-    basic.pause(200)
     basic.clearScreen()
 }
-keyboard.kbEvent(KeyValue.key0, function () {
-    radio.sendNumber(1)
-    affichebienenvoye()
+keyboard.kbEvent(KeyValue.key8, function () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . # . . .
+        . . . . .
+        `)
+    nbtouchepressee = nbtouchepressee + 1
+    if (nbtouchepressee == 1) {
+        radio.sendNumber(1)
+        affichebienenvoye()
+    }
+    nbtouchepressee = nbtouchepressee - 1
+})
+keyboard.kbEvent(KeyValue.key6, function () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . .
+        . . . . .
+        . . . . .
+        `)
+    nbtouchepressee = nbtouchepressee + 1
+    if (nbtouchepressee == 1) {
+        radio.sendNumber(3)
+        affichebienenvoye()
+    }
+    nbtouchepressee = nbtouchepressee - 1
 })
 radio.onReceivedValue(function (name, value) {
     if (name.compare("\"idprof\"") == 0 && value == 250) {
@@ -32,11 +46,39 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 keyboard.kbEvent(KeyValue.keydf, function () {
-    radio.sendNumber(0)
-    affichebienenvoye()
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        # . . . .
+        `)
+    nbtouchepressee = nbtouchepressee + 1
+    if (nbtouchepressee == 1) {
+        radio.sendNumber(0)
+        affichebienenvoye()
+    }
+    nbtouchepressee = nbtouchepressee - 1
 })
+keyboard.kbEvent(KeyValue.keyplus, function () {
+    basic.showLeds(`
+        . . . . .
+        . . . # .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+    nbtouchepressee = nbtouchepressee + 1
+    if (nbtouchepressee == 1) {
+        radio.sendNumber(2)
+        affichebienenvoye()
+    }
+    nbtouchepressee = nbtouchepressee - 1
+})
+let nbtouchepressee = 0
 serial.setBaudRate(BaudRate.BaudRate115200)
 let valeuridprof = 250
+nbtouchepressee = 0
 basic.showIcon(IconNames.Heart)
 keyboard.vibrationMotor(OnOff.ON)
 basic.pause(200)
