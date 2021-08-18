@@ -1,4 +1,4 @@
-# Ceci est un prototype de télécommande à mettre sur lavant bras pour l'enseignant qui souhaite utiliser eleves.online
+# Ceci est un prototype de télécommande à mettre sur l'avant bras de l'enseignant qui souhaite utiliser eleves.online
 
 > Ouvrir cette page à [https://sydesb.github.io/prototype-telcommande-microbit-enseignant-elevesonline/](https://sydesb.github.io/prototype-telcommande-microbit-enseignant-elevesonline/)
 
