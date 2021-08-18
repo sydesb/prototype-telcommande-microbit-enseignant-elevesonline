@@ -21,7 +21,6 @@ Ce dépôt peut être ajouté en tant qu'**extension** dans MakeCode.
 
 ## Aperçu des blocs
 
-Cette section montre le code des blocs du dernier commit dans la branche master.
-Cette image peut prendre quelques minutes pour être actualisée.
+
 
 ![Un rendu de la vue des blocs](https://github.com/sydesb/prototype-telcommande-microbit-enseignant-elevesonline/raw/master/.github/makecode/blocks.png)
