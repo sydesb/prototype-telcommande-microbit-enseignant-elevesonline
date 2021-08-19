@@ -2,40 +2,51 @@ enum RadioMessage {
     message1 = 49434,
     test = 2239
 }
+keyboard.kbEvent(KeyValue.key1, function () {
+    keyboard.setIndexColor(1, 0xff0000)
+    radio.sendNumber(3)
+    affichebienenvoye()
+    keyboard.ledBlank()
+})
+keyboard.kbEvent(KeyValue.keyminus, function () {
+    keyboard.setIndexColor(11, 0xff0000)
+    radio.sendNumber(3)
+    affichebienenvoye()
+    keyboard.ledBlank()
+})
+keyboard.kbEvent(KeyValue.key5, function () {
+    keyboard.setIndexColor(5, 0xff0000)
+    radio.sendNumber(2)
+    affichebienenvoye()
+    keyboard.ledBlank()
+})
+keyboard.kbEvent(KeyValue.keydiv, function () {
+    keyboard.setIndexColor(13, 0xff0000)
+    radio.sendNumber(1)
+    affichebienenvoye()
+    keyboard.ledBlank()
+})
+input.onButtonPressed(Button.A, function () {
+    radio.sendNumber(0)
+    affichebienenvoye()
+})
 function affichebienenvoye () {
     basic.showIcon(IconNames.Diamond)
-    basic.showIcon(IconNames.SmallDiamond)
     basic.clearScreen()
 }
-keyboard.kbEvent(KeyValue.key8, function () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . # . . .
-        . . . . .
-        `)
-    nbtouchepressee = nbtouchepressee + 1
-    if (nbtouchepressee == 1) {
-        radio.sendNumber(1)
-        affichebienenvoye()
-    }
-    nbtouchepressee = nbtouchepressee - 1
+input.onButtonPressed(Button.AB, function () {
+    radio.sendNumber(2)
+    affichebienenvoye()
 })
-keyboard.kbEvent(KeyValue.key6, function () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . # . .
-        . . . . .
-        . . . . .
-        `)
-    nbtouchepressee = nbtouchepressee + 1
-    if (nbtouchepressee == 1) {
-        radio.sendNumber(3)
-        affichebienenvoye()
-    }
-    nbtouchepressee = nbtouchepressee - 1
+keyboard.kbEvent(KeyValue.key0, function () {
+    keyboard.setIndexColor(0, 0xff0000)
+    radio.sendNumber(0)
+    affichebienenvoye()
+    keyboard.ledBlank()
+})
+input.onButtonPressed(Button.B, function () {
+    radio.sendNumber(1)
+    affichebienenvoye()
 })
 radio.onReceivedValue(function (name, value) {
     if (name.compare("\"idprof\"") == 0 && value == 250) {
@@ -45,46 +56,42 @@ radio.onReceivedValue(function (name, value) {
         keyboard.vibrationMotor(OnOff.OFF)
     }
 })
-keyboard.kbEvent(KeyValue.keydf, function () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        # . . . .
-        `)
-    nbtouchepressee = nbtouchepressee + 1
-    if (nbtouchepressee == 1) {
-        radio.sendNumber(0)
-        affichebienenvoye()
-    }
-    nbtouchepressee = nbtouchepressee - 1
+keyboard.kbEvent(KeyValue.key3, function () {
+    keyboard.setIndexColor(3, 0xff0000)
+    radio.sendNumber(3)
+    affichebienenvoye()
+    keyboard.ledBlank()
 })
 keyboard.kbEvent(KeyValue.keyplus, function () {
-    basic.showLeds(`
-        . . . . .
-        . . . # .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
-    nbtouchepressee = nbtouchepressee + 1
-    if (nbtouchepressee == 1) {
-        radio.sendNumber(2)
-        affichebienenvoye()
-    }
-    nbtouchepressee = nbtouchepressee - 1
+    keyboard.setIndexColor(10, 0xff0000)
+    radio.sendNumber(3)
+    affichebienenvoye()
+    keyboard.ledBlank()
 })
-let nbtouchepressee = 0
+keyboard.kbEvent(KeyValue.key2, function () {
+    keyboard.setIndexColor(2, 0xff0000)
+    radio.sendNumber(3)
+    affichebienenvoye()
+    keyboard.ledBlank()
+})
 serial.setBaudRate(BaudRate.BaudRate115200)
+keyboard.setBrightness(19)
+radio.setGroup(136)
 let valeuridprof = 250
-nbtouchepressee = 0
+let nbtouchepressee = 0
 basic.showIcon(IconNames.Heart)
 keyboard.vibrationMotor(OnOff.ON)
 basic.pause(200)
 keyboard.vibrationMotor(OnOff.OFF)
 basic.pause(0.8)
 basic.clearScreen()
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    # . . . .
+    `)
 basic.forever(function () {
 	
 })
